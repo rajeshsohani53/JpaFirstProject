@@ -1,0 +1,20 @@
+/.metadata/
+# Compiled class files
+*.class
+
+# Build output
+target/
+bin/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+
+# OS files
+Thumbs.db
+.DS_Store
