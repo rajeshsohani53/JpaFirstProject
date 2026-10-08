@@ -8,6 +8,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
 public class Main {
+	Games g;
  public static void main(String[] args) {
 	//EntityManagerFactory emf=EntityManagerFactoryProvider.getEntityManagerFactory();
 	//EntityManager em=emf.createEntityManager();
@@ -17,10 +18,15 @@ public class Main {
 	//}
 	
 	//emf.close();
-	 Games g1=new Games();
-	 g1.setGame_Name("Game 1");
-	 g1.setGame_NoOf_Players(4);
-	 g1.setGame_Mode("Offlibe");
-	 DbUtil.insertData(g1);
+//	 Games g2=new Games();
+//	 g2.setGame_Name("Game 2");
+//	 g2.setGame_NoOf_Players(4);
+//	 g2.setGame_Mode("Offline_2");
+	 
+	 DbUtil.curdOperations(em->{
+		 Games g=em.find(Games.class,1);
+	     System.out.println(g);	 
+		 
+	 });
 }
 }

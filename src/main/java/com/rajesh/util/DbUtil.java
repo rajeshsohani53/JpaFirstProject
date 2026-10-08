@@ -1,5 +1,7 @@
 package com.rajesh.util;
 
+import java.util.function.Consumer;
+
 import com.rajesh.entity.Games;
 
 import jakarta.persistence.EntityManager;
@@ -28,5 +30,20 @@ public class DbUtil {
             em.close();               
         }
       
+    }
+    
+    
+    public static void curdOperations(Consumer<EntityManager> work)
+    {
+        EntityManagerFactory emf=EntityManagerFactoryProvider.getEntityManagerFactory();
+        EntityManager em=emf.createEntityManager();
+        EntityTransaction tx=em.getTransaction();
+        tx.begin();
+        //actual work
+        work.accept(em);
+        //
+        tx.commit();
+        em.close();
+        
     }
 }
